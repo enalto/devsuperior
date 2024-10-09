@@ -13,11 +13,9 @@ public class Main {
 }
 
 class Data {
-    private final String data;
     private final String[] splitData;
 
     public Data(String data) {
-        this.data = data;
         this.splitData = data.split("/");
     }
 
