@@ -67,7 +67,9 @@ public class AnagramValidator {
 
     public enum Strategy {
         FOR_LOOP,
-        ARRAY_SORT
+        ARRAY_SORT,
+        HASH_MAP_COUNT,
+        ARRAY_COUNT
     }
 
 }
