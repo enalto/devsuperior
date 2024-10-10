@@ -20,6 +20,12 @@ public class Aplication {
         System.out.println(anagramValidator2
                 .isValid(AnagramValidator.Strategy.FOR_LOOP));
 
+        AnagramValidator anagramValidator3 =
+                new AnagramValidator("amor", "romAq");
+
+        System.out.println(anagramValidator3
+                .isValid(AnagramValidator.Strategy.ARRAY_COUNT));
+
     }
 
 }

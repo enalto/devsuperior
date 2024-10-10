@@ -26,12 +26,12 @@ public class AnagramValidator {
         if (word.equals(anagram)) {
             return true;
         }
-        //var word1 = word.replaceAll("\\s", "").toLowerCase();
-        //var anagram1 = anagram.replaceAll("\\s", "").toLowerCase();
         if (strategy == Strategy.ARRAY_SORT) {
-            return areAnagramsSortArrayStrategy(word, anagram);
+            return areAnagramsArraySort(word, anagram);
+        } else if (strategy == Strategy.ARRAY_COUNT) {
+            return areAnagramsArrayCount(word, anagram);
         } else {
-            return areAnagramsForLoopStrategy(word, anagram);
+            return areAnagramsForLoop(word, anagram);
         }
     }
 
@@ -57,12 +57,20 @@ public class AnagramValidator {
         return false;
     }
 
-    private boolean areAnagramsSortArrayStrategy(String word, String anagram) {
-        return areAnagramsArraySort(word, anagram);
-    }
-
-    private boolean areAnagramsForLoopStrategy(String word, String anagram) {
-        return areAnagramsForLoop(word, anagram);
+    private boolean areAnagramsArrayCount(String word, String anagram) {
+        char[] arrayCount = new char[26];
+        for (int i = 0; i < word.length(); i++) {
+            arrayCount[word.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < anagram.length(); i++) {
+            arrayCount[anagram.charAt(i) - 'a']--;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (arrayCount[i] != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public enum Strategy {
