@@ -25,6 +25,6 @@ public class CommonPrefix {
                 break;
             }
         }
-        return (longestCommonPrefix.isEmpty() ? "\"\"" : longestCommonPrefix);
+        return ("\""+longestCommonPrefix+"\"");
     }
 }
